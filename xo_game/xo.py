@@ -1,4 +1,4 @@
-# hi
+# Xs and Os game
 
 def checkRow(row):
 	if grid[row][0] == grid[row][1] == grid[row][2]:
@@ -49,24 +49,43 @@ def printGrid():
 
 
 def play(row, col, sym):
+	# moves += 1
+	# if moves >= 9:
+	# 	print('TIE!')
+	# 	return True
 	if grid[row][col] != 0:
 		print('try somewhere else, plz.')
 	else:
 		grid[row][col] = sym
 		if checkGrid(row, col):
-			print(sym, 'won!\n')
+			print(symtab[sym], 'WON!\n')
+			return True
 		else:
-			print('next turn>>')
+			pass
 	printGrid()
 
 
-
 grid = [[0,0,0],[0,0,0],[0,0,0]]
+symtab = ['X', 'O']
+# moves = 0
 
-os = 1
-xs = 2
 
-play(0,0,1)
-play(0,1,1)
-play(0,2,1)
+def main():
+	print('Field numbers:\n  0 1 2\n0 _ _ _\n1 _ _ _\n2 _ _ _')
+	
+	while True:
+		xrow = input("X's row: ")
+		xcol = input("X's col: ")
+		if play(int(xrow), int(xcol), 1):
+			break
+		orow = input("O's row: ")
+		ocol = input("O's col: ")
+		if play(int(orow), int(ocol), 2):
+			break
 
+
+
+
+# ------------------------------------------------
+if (__name__ == '__main__'): 
+    main()
