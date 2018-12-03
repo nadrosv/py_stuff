@@ -5,6 +5,7 @@
 
 import os
 import datetime
+import re
 
 path = 'testfiles\\'
 files =[]
@@ -25,4 +26,4 @@ for name in files:
 		new_name = name[-8:-4] + chap + name[0:2] + name[-4:]
 		print(new_name)
 
-		os.rename(path + name, path + new_name)
+		# os.rename(path + name, path + new_name)
